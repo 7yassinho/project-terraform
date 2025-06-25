@@ -93,3 +93,8 @@ variable "kubernetes_namespace" {
   description = "Il namespace Kubernetes dove è situato il Deployment che Cloud Run scalerà."
   type        = string
 }
+
+variable "backend_bucket_name" {
+  description = "Il nome del backend bucket per il bilanciatore di carico."
+  type        = string
+}

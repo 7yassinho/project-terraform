@@ -21,3 +21,4 @@ http_proxy_name           = "NOME_HTTP_PROXY"                     # Esempio: "my
 forwarding_rule_name      = "NOME_FORWARDING_RULE"                # Esempio: "my-forwarding-rule"
 backend_deployment_name   = "NOME_DEPLOYMENT_KUBERNETES_BACKEND"  # Esempio: "backend"
 kubernetes_namespace      = "NAMESPACE_KUBERNETES"                # Esempio: "default"
+backend_bucket_name       = "NOME_BACKEND_BUCKET"                 # Esempio: "my-app-backend-bucket"
