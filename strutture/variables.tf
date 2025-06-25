@@ -1,111 +1,95 @@
-# variables2.tf
+# variables.tf
+# Questo file dichiara le variabili utilizzate dalla configurazione Terraform.
+# Non contiene valori di default, il che significa che i valori
+# DEVONO essere forniti tramite un file .tfvars (es. terraform.tfvars)
+# o attraverso variabili d'ambiente/linea di comando.
+
 variable "project" {
-  description = "ID del progetto GCP"
+  description = "L'ID del progetto Google Cloud Platform."
   type        = string
-  default     = "" # nomr del progetto su cui lavori 
 }
 
 variable "region" {
-  description = "Regione GCP dove creare le risorse"
+  description = "La regione GCP dove verranno create la maggior parte delle risorse (es. 'us-central1' o 'europe-west1')."
   type        = string
-  default     = "" #regione del progetto
 }
 
 variable "zone" {
-  description = "Zona GCP dove creare le risorse"
+  description = "La zona GCP specifica all'interno della regione (es. 'us-central1-a' o 'europe-west1-b')."
   type        = string
-  default     = "" #regione in cui vera genrato il progetto
 }
 
 variable "network" {
-  description = "Nome della rete VPC già esistente per GKE"
+  description = "Il nome della rete VPC esistente a cui il cluster GKE e altre risorse si connetteranno."
   type        = string
-  default     = "" # La tua rete esistente
 }
 
 variable "subnet_gke_privata_name" {
-  description = "Nome della subnet esistente per GKE"
+  description = "Il nome della subnet esistente all'interno della rete VPC, dove verrà creato il cluster GKE."
   type        = string
-  default     = "" # La tua subnet esistente
 }
 
 variable "gke_cluster_name" {
-  description = "Nome del cluster GKE"
+  description = "Il nome desiderato per il cluster GKE."
   type        = string
-  default     = "test-cluster-1" #nome del cluster GKE
 }
 
-# Le variabili gke_pod_ip_range e gke_service_ip_range non sono più usate direttamente per creare i range
-# ma se i tuoi altri script o configurazioni le usano per riferimento, potresti volerle mantenere.
-# Per il deployment GKE, useremo solo i nomi dei range esistenti.
 variable "gke_pod_ip_range" {
-  description = "Intervallo IP dei Pod (questo è il CIDR effettivo per il range esistente)"
+  description = "L'intervallo IP CIDR per i Pod del cluster GKE (questo è il CIDR effettivo per il range secondario dei Pod sulla subnet)."
   type        = string
-  default     = "11.3.0.0/16" # Corrisponde a "pods-range-new" o "gke-pods-range-2"
 }
 
 variable "gke_pod_ip_range_name" {
-  description = "Nome intervallo secondario Pod esistente sulla subnet"
+  description = "Il nome del range IP secondario esistente sulla subnet per i Pod del cluster GKE (nome di riferimento per Terraform)."
   type        = string
-  default     = "gke-pods-range-2" # Usa questo nome di range esistente!
 }
 
 variable "gke_service_ip_range" {
-  description = "Intervallo IP dei Servizi (questo è il CIDR effettivo per il range esistente)"
+  description = "L'intervallo IP CIDR per i Servizi del cluster GKE (questo è il CIDR effettivo per il range secondario dei Servizi sulla subnet)."
   type        = string
-  default     = "11.4.0.0/20" # Corrisponde a "services-range-new" o "gke-services-range-2"
 }
 
 variable "gke_service_ip_range_name" {
-  description = "Nome intervallo secondario Servizi esistente sulla subnet"
+  description = "Il nome del range IP secondario esistente sulla subnet per i Servizi del cluster GKE (nome di riferimento per Terraform)."
   type        = string
-  default     = "gke-services-range-2" # Usa questo nome di range esistente!
 }
 
 variable "gke_node_count" {
-  description = "Numero nodi pool"
+  description = "Il numero di nodi desiderato per il pool di nodi del cluster GKE."
   type        = number
-  default     = 1
 }
 
 variable "master_ipv4_cidr_block" {
-  description = "CIDR block per master privato"
+  description = "Il blocco CIDR IPv4 per il piano di controllo privato del cluster GKE. Questo CIDR non deve sovrapporsi con altre reti."
   type        = string
-  default     = "172.16.0.0/28"
 }
 
 variable "bucket_name" {
-  description = "Nome base per il bucket di Google Cloud Storage per il sito statico"
+  description = "Il nome base per il bucket di Google Cloud Storage che ospiterà il sito statico. Un suffisso casuale verrà aggiunto per garantirne l'unicità."
   type        = string
-  default     = "static-site-bucket"
 }
 
 variable "url_map_name" {
-  description = "Nome URL map per il bilanciatore di carico"
+  description = "Il nome per la risorsa URL Map del bilanciatore di carico HTTP(S)."
   type        = string
-  default     = "my-url-map"
 }
 
 variable "http_proxy_name" {
-  description = "Nome HTTP proxy per il bilanciatore di carico"
+  description = "Il nome per la risorsa HTTP Proxy del bilanciatore di carico HTTP(S)."
   type        = string
-  default     = "my-http-proxy"
 }
 
 variable "forwarding_rule_name" {
-  description = "Nome forwarding rule per il bilanciatore di carico"
+  description = "Il nome per la risorsa Global Forwarding Rule del bilanciatore di carico HTTP(S)."
   type        = string
-  default     = "my-forwarding-rule"
 }
 
 variable "backend_deployment_name" {
-  description = "Nome del deployment del backend Kubernetes (per Cloud Run scaling)"
+  description = "Il nome del Deployment Kubernetes che verrà scalato da Cloud Run."
   type        = string
-  default     = "backend" # Nome predefinito per il deployment Kubernetes
 }
 
 variable "kubernetes_namespace" {
-  description = "Namespace Kubernetes dove si trova il deployment (per Cloud Run scaling)"
+  description = "Il namespace Kubernetes dove è situato il Deployment che Cloud Run scalerà."
   type        = string
-  default     = "progetto-web" # Il namespace predefinito che hai usato
 }
