@@ -98,3 +98,8 @@ variable "backend_bucket_name" {
   description = "Il nome del backend bucket per il bilanciatore di carico."
   type        = string
 }
+
+variable "artifact_registry_name" {
+  description = "Il nome desiderato per il repository di Artifact Registry."
+  type        = string
+}
