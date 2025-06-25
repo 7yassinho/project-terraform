@@ -1,9 +1,9 @@
-# variables.tf
-# Questo file dichiara le variabili utilizzate dalla configurazione Terraform.
-# Non contiene valori di default, il che significa che i valori
-# DEVONO essere forniti tramite un file .tfvars (es. terraform.tfvars)
-# o attraverso variabili d'ambiente/linea di comando.
-
+/* variables.tf
+Questo file dichiara le variabili utilizzate dalla configurazione Terraform.
+Non contiene valori di default, il che significa che i valori
+DEVONO essere forniti tramite un file .tfvars (es. terraform.tfvars)
+o attraverso variabili d'ambiente/linea di comando.
+*/
 variable "project" {
   description = "L'ID del progetto Google Cloud Platform."
   type        = string
