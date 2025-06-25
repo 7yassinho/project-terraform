@@ -1,13 +1,9 @@
-# storage2.tf
+# storage.tf
 # Questo file gestisce il bucket di Google Cloud Storage per il sito statico e i suoi contenuti.
 
-# Assicurati che la risorsa 'random_id.bucket_suffix' sia definita solo una volta nel tuo progetto,
-# ad esempio in un file 'main.tf' o 'providers.tf' se non è già presente.
-# NON DUPLICARE il blocco 'resource "random_id" "bucket_suffix" {}' qui se esiste già altrove.
-
 resource "google_storage_bucket" "static_site_bucket" {
-  # Il nome del bucket sarà composto dal nome base, dall'ID del progetto e da un suffisso casuale.
-  name          = "${var.bucket_name}-${var.project}-${random_id.bucket_suffix.hex}"
+  # Il nome del bucket sarà ora esattamente quello specificato nella variabile bucket_name.
+  name          = var.bucket_name
   location      = var.region          # Utilizza la regione specificata nella variabile 'region'
   force_destroy = true                # Permette la distruzione del bucket anche se non vuoto (usare con cautela in produzione!)
 
