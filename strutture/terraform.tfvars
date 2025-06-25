@@ -3,11 +3,11 @@
 # Terraform lo caricherà automaticamente.
 # Decommenta le righe necessarie e inserisci i valori appropriati per il tuo deployment.
 
-project                   = "IL_TUO_PROJECT_ID_GCP"              # Esempio: "my-gcp-project-12345"
+project                   = "IL_TUO_PROJECT_ID_GCP"               # Esempio: "my-gcp-project-12345"
 region                    = "LA_TUA_REGIONE_GCP"                  # Esempio: "us-central1" o "europe-west1"
 zone                      = "LA_TUA_ZONA_GCP"                     # Esempio: "us-central1-a" o "europe-west1-b"
 network                   = "NOME_DELLA_TUA_RETE_VPC"             # Esempio: "mia-rete-privata-gke"
-subnet_gke_privata_name   = "NOME_DELLA_TUA_SUBNET_GKE"         # Esempio: "subnet-gke-privata"
+subnet_gke_privata_name   = "NOME_DELLA_TUA_SUBNET_GKE"           # Esempio: "subnet-gke-privata"
 gke_cluster_name          = "NOME_DESIDERATO_PER_IL_CLUSTER"      # Esempio: "test-cluster-1"
 gke_pod_ip_range          = "CIDR_RANGE_PODS"                     # Esempio: "10.0.0.0/16"
 gke_pod_ip_range_name     = "NOME_RANGE_PODS"                     # Esempio: "gke-pods-range"
