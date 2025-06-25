@@ -22,4 +22,4 @@ forwarding_rule_name      = "NOME_FORWARDING_RULE"                # Esempio: "my
 backend_deployment_name   = "NOME_DEPLOYMENT_KUBERNETES_BACKEND"  # Esempio: "backend"
 kubernetes_namespace      = "NAMESPACE_KUBERNETES"                # Esempio: "default"
 backend_bucket_name       = "NOME_BACKEND_BUCKET"                 # Esempio: "my-app-backend-bucket"
-artifact_registry_name    = "NOME_DEL_TUO_REPOSITORY" # Esempio: "my-docker-repo" o "my-app-artifacts"
+artifact_registry_name    = "NOME_DEL_TUO_REPOSITORY"             # Esempio: "my-docker-repo" o "my-app-artifacts"
