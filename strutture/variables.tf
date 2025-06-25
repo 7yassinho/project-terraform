@@ -65,7 +65,7 @@ variable "master_ipv4_cidr_block" {
 }
 
 variable "bucket_name" {
-  description = "Il nome base per il bucket di Google Cloud Storage che ospiterà il sito statico. Un suffisso casuale verrà aggiunto per garantirne l'unicità."
+  description = "Il nome base per il bucket di Google Cloud Storage che ospiterà il sito statico."
   type        = string
 }
 
